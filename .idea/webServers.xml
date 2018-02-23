@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ed79d4a1-9167-4e5e-8415-c6e576e1e13c" name="localhost" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="C:\Program Files\EasyPHP-Devserver-17\eds-www" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
