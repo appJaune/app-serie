@@ -24,6 +24,14 @@ class Serie {
     public $seriesName;
 
     /**
+     * Une serie a un episodes
+     * La propriété est definie en public, parce que pour l'utiliser c'est peut-etre aussi simple si j'en ai besoin depuis un autre namespace
+     * Si je ne l'utilise que via *Serie*, donc pas directement je pourrais tout mettre en protected.
+     * @ORM\OneToMany(targetEntity="Titrefr", mappedBy="serie", cascade={"all"}, fetch="LAZY")
+     */
+    public $titrefr;
+
+    /**
      * Une serie a plusieurs banners
      * La propriété est definie en public, parce que pour l'utiliser c'est peut-etre aussi simple si j'en ai besoin depuis un autre namespace
      * Si je ne l'utilise que via *Serie*, donc pas directement je pourrais tout mettre en protected.
@@ -41,6 +49,8 @@ class Serie {
      * @ORM\OneToMany(targetEntity="Episode", mappedBy="serie", cascade={"all"}, fetch="LAZY")
      */
     public $episodes;
+
+
 
 
     public function __construct() {

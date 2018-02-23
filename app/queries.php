@@ -28,10 +28,10 @@ $query = $repository->createQueryBuilder('s')
 $dqlSeries = $query->getResult();
 
 
+
 $repositoryB = $entityManager->getRepository('Tvtruc\Entities\Banner');
 //$foundBanner = $repositoryB->findOneby(array('keyvalue' => '78462'));
 //\Doctrine\Common\Util\Debug::dump($foundBanner);
-
 
 
 
@@ -52,6 +52,6 @@ $repositoryB = $entityManager->getRepository('Tvtruc\Entities\Banner');
  // retourne la version "lisible"
 $exportedSeries = \Doctrine\Common\Util\Debug::export($dqlSeries,4);
 //print_r($exportedSeries);
-echo '<PRE>';
+//echo '<PRE>';
 echo json_encode($exportedSeries, JSON_PRETTY_PRINT);
 //echo '<PRE>';

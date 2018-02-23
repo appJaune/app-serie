@@ -3,10 +3,11 @@
 namespace Tvtruc\Entities;
 //use Doctrine\ORM\Annotation as ORM;
 use Doctrine\ORM\Mapping AS ORM;
+use Tvtruc\Entities\Serie;
 /**
- * @ORM\Entity @ORM\Table(name="banners")
+ * @ORM\Entity @ORM\Table(name="translation_seriesname")
  **/
-class Banner {
+class Titrefr {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -14,36 +15,30 @@ class Banner {
      */
 
     public $id;
-
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    public $seriesid;
 
     /**
      * @ORM\Column(type="string")
      * @var string
      */
-    public $filename;
+    public $languageid;
 
     /**
      * @ORM\Column(type="string")
      * @var string
      */
-    public $keytype;
+    public $translation;
+
 
     /**
-     * @ORM\Column(type="string")
-     * @var string
-     */
-    public $keyvalue;
-
-    /**
-     * @ORM\Column(type="string")
-     * @var string
-     */
-    public $subkey;
-
-    /**
-     * Les banner sont liés a une serie
-     * @ORM\ManyToOne(targetEntity="Serie", inversedBy="banner", fetch="LAZY")
-     * @ORM\JoinColumn(nullable=false, name="keyvalue", referencedColumnName="id")
+     * Les episodes sont liés a une serie
+     * Le serie est en private parce que je veux n'y acceder qu'au travers des getters/setters
+     * @ORM\ManyToOne(targetEntity="Serie", inversedBy="titrefr", fetch="LAZY")
+     * @ORM\JoinColumn(nullable=false, name="seriesid", referencedColumnName="id")
      */
     public $serie;
 
@@ -53,58 +48,9 @@ class Banner {
     /**
      * @param $name
      */
-    public function setSubkey($name)
-    {
-        $this->subkey = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSubkey()
-    {
-        return($this->subkey);
-    }
-
-    /**
-     * @param $name
-     */
-    public function setKeyvalue($name)
-    {
-        $this->keyvalue = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getKeyvalue()
-    {
-        return($this->keyvalue);
-    }
-
-    /**
-     * @param $name
-     */
-    public function setKeytype($name)
-    {
-        $this->keytype = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getKeytype()
-    {
-        return($this->keytype);
-    }
-
-
-    /**
-     * @param $name
-     */
     public function setName($name)
     {
-        $this->filename = $name;
+        $this->seriesid = $name;
     }
 
     /**
@@ -112,8 +58,46 @@ class Banner {
      */
     public function getName()
     {
-        return($this->filename);
+        return($this->seriesid);
     }
+
+
+
+
+    /**
+     * @param $name
+     */
+    public function setLanguageid($name)
+    {
+        $this->languageid = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLanguageid()
+    {
+        return($this->languageid);
+    }
+
+
+
+    /**
+     * @param $name
+     */
+    public function setTranslation($name)
+    {
+        $this->translation = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTranslation()
+    {
+        return($this->translation);
+    }
+
 
 
 
